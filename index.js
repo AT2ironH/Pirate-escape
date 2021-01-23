@@ -32,12 +32,12 @@ function elements(){
     
 }
 
-function elementMovement(){
+function game(){
     elements()
     
 }
 
 
 intervalId = setInterval (() => {
-    requestAnimationFrame(elementMovement)
+    requestAnimationFrame(game)
     }, 50)

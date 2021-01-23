@@ -32,7 +32,10 @@ Definition of the different states and their transition (transition functions)
 
 - Task
 
-????
+1. create start screen
+2. create game screen
+3. create game over screen
+
 
 - Links
 

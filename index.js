@@ -5,10 +5,10 @@ let playerX = 360
 let playerY = 650
 let playerWidth = 60
 let playerHeight = 50
-let playerIncrementX = 0.5
-let playerDecrementY = 0.5
-let playerDecrementX = 0.5
-let playerIncrementY = 0.5
+let playerIncrementX = 5
+let playerDecrementY = 5
+let playerDecrementX = 5
+let playerIncrementY = 5
 let isLeftArrow = false;
 let isRightArrow = false;
 let isArrowUp = false;
@@ -22,8 +22,8 @@ let pirateShipY = -80
 let coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY
 let coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX
 let chain = {x:coordinatesX , y:-200 }
-
-
+let playerShipIncrementY = 2
+let playerShipDecrementY = 1
  
 let startScreen = document.createElement(`img`)     //FINISHED
 startScreen.src = "/imgs/startScreen.png"
@@ -49,6 +49,10 @@ playerImg.src = "/imgs/player.png"
 
 let pirateImg = document.createElement(`img`)
 pirateImg.src = "/imgs/pirate.png"
+
+
+
+
 
 
 
@@ -97,24 +101,19 @@ document.addEventListener(`keydown`, (event) => {  //FINISHED
 function elements(){
     ctx.drawImage(backgroundImg, 0, 0)
     ctx.drawImage(playerShipImg, playerShipX, playerShipY, playerShipWidth, playerShipHeight )
-    // ctx.drawImage(harpoonImg, canvas.width /1.9, -625)
     if (chain.y + harpoonImg.height > coordinatesY){
         ctx.drawImage(harpoonImg, chain.x, chain.y)
-        // chain.y --
         // here call the function that moves up
        }
-    else {
+        else {
         ctx.drawImage(harpoonImg, chain.x, chain.y) 
         chain.y ++
     }
-
-
-    
     ctx.drawImage(shipImg, pirateShipX, pirateShipY, shipImg.width *1.3, shipImg.height *1.3)
     ctx.drawImage(playerImg, playerX, playerY, playerWidth,playerHeight)
     ctx.drawImage(pirateImg, canvas.width /2 , 80)
 
-    if(isLeftArrow && playerX  > playerShipX -15){  // FINISHED
+    if(isLeftArrow && playerX  > playerShipX -15){  // FINISHED add audio here
         playerX -= playerDecrementX
     }
     else if(isRightArrow && playerWidth + playerX < canvas.width - playerShipX +10){
@@ -126,26 +125,33 @@ function elements(){
     else if (isArrowDown && playerY + playerHeight < playerShipY + playerShipHeight -5 ){
         playerY += playerIncrementY
     }
-
+    
+    
 
 
 }
 
 function breakTheChain(){
-    if((playerX + playerWidth) && ( playerY + playerHeight) == coordinatesY){
-        chain.y = 0
+    if(playerX + playerWidth && playerY == chain.y) {
+        harpoonImg = 0
     }
-
-
 }
 
-
+function platformMove(){
+    
+    if (chain.y + harpoonImg.height == coordinatesY || chain.y + harpoonImg.height -1 == coordinatesY){
+        playerShipY -= playerShipDecrementY
+        coordinatesY -= playerShipDecrementY
+        chain.y -= playerShipDecrementY
+        playerY -= playerShipDecrementY
+    }
+}
 
 
 
 function game(){
     elements()
-    
+    platformMove()
 }
 
 
@@ -153,5 +159,5 @@ function game(){
 window.addEventListener('load', () => {
 intervalId = setInterval (() => {
     requestAnimationFrame(game)
-    }, 5)
+    }, 20)
 })

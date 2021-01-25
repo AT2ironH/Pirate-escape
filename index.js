@@ -5,10 +5,10 @@ let playerX = 360
 let playerY = 650
 let playerWidth = 60
 let playerHeight = 50
-let playerIncrementX = 5
-let playerDecrementY = 5
-let playerDecrementX = 5
-let playerIncrementY = 5
+let playerIncrementX = 3
+let playerDecrementY = 3
+let playerDecrementX = 3
+let playerIncrementY = 3
 let isLeftArrow = false;
 let isRightArrow = false;
 let isArrowUp = false;
@@ -24,6 +24,9 @@ let coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -play
 let chain = {x:coordinatesX , y:-200 }
 let playerShipIncrementY = 2
 let playerShipDecrementY = 1
+let timer = 0
+
+
  
 let startScreen = document.createElement(`img`)     //FINISHED
 startScreen.src = "/imgs/startScreen.png"
@@ -103,7 +106,6 @@ function elements(){
     ctx.drawImage(playerShipImg, playerShipX, playerShipY, playerShipWidth, playerShipHeight )
     if (chain.y + harpoonImg.height > coordinatesY){
         ctx.drawImage(harpoonImg, chain.x, chain.y)
-        // here call the function that moves up
        }
         else {
         ctx.drawImage(harpoonImg, chain.x, chain.y) 
@@ -113,7 +115,7 @@ function elements(){
     ctx.drawImage(playerImg, playerX, playerY, playerWidth,playerHeight)
     ctx.drawImage(pirateImg, canvas.width /2 , 80)
 
-    if(isLeftArrow && playerX  > playerShipX -15){  // FINISHED add audio here
+    if(isLeftArrow && playerX  > playerShipX -15){  
         playerX -= playerDecrementX
     }
     else if(isRightArrow && playerWidth + playerX < canvas.width - playerShipX +10){
@@ -147,11 +149,18 @@ function platformMove(){
     }
 }
 
+// function audio() { 
+//     document.sound.src = song
+
+    
+//     window.onload = audio;
+// } 
 
 
 function game(){
     elements()
     platformMove()
+    // audio()
 }
 
 

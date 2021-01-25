@@ -1,6 +1,3 @@
-# Pirate-escape
-
-
 -------------- Pirate Escape --------------------------
 
 -  Description
@@ -24,7 +21,7 @@ to escape the pirate.
 
 - Data Structure
 
-????  In development
+????
 
 - States and States Transitions
 Definition of the different states and their transition (transition functions)
@@ -35,11 +32,13 @@ Definition of the different states and their transition (transition functions)
 
 - Task
 
-???? In development
+1. create start screen
+2. create game screen
+3. create game over screen
+
 
 - Links
 
 - Git
 URls for the project repo:
 -https://github.com/AT2ironH/Pirate-escape
-

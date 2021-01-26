@@ -5,10 +5,10 @@ let playerX = 360
 let playerY = 650
 let playerWidth = 60
 let playerHeight = 50
-let playerIncrementX = 3
-let playerDecrementY = 3
-let playerDecrementX = 3
-let playerIncrementY = 3
+let playerIncrementX = 1.5
+let playerDecrementY = 1.5
+let playerDecrementX = 1.5
+let playerIncrementY = 1.5
 let isLeftArrow = false;
 let isRightArrow = false;
 let isArrowUp = false;
@@ -22,8 +22,8 @@ let pirateShipY = -80
 let coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY
 let coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX
 let chain = {x:coordinatesX , y:-200 }
-let playerShipIncrementY = 2
-let playerShipDecrementY = 1
+let playerShipIncrementY = 1
+let playerShipDecrementY = 0.5
 let timer = 0
 
 
@@ -135,11 +135,18 @@ function elements(){
 
 }
 
-// function breakTheChain(){
-//     if(playerX + playerWidth && playerY == chain.y) {
-//         harpoonImg = 0
-//     }
-// }
+function breakTheChain(){
+    
+    if(playerX + playerImg.width > coordinatesX && playerX < coordinatesX && playerY < coordinatesY && playerY + playerImg.height > coordinatesY   ) {
+       chain.y = -500 
+        coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY
+        coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX
+        chain.x = coordinatesX
+        playerShipY += playerShipIncrementY
+        playerY += playerShipIncrementY
+        
+    }
+}
 
 function platformMove(){
     
@@ -157,7 +164,7 @@ function game(){
     elements()
     platformMove()
     audio.volume = 0.1;
-    
+    breakTheChain()
 }
 
 
@@ -165,5 +172,5 @@ function game(){
 window.addEventListener('load', () => {
 intervalId = setInterval (() => {
     requestAnimationFrame(game)
-    }, 20)
+    }, 10)
 })

@@ -16,7 +16,7 @@ function buttonStartsGame(){
     gameButton.addEventListener(`click`, function(){
     remove()
     start()
-    audio.play()
+    // audio.play()
 })
 
 }

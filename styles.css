@@ -21,6 +21,7 @@ p{
 .backPic{
     background-image: url(`./imgs/startScreen.png`);
     text-align: center;
+    position: relative;
     
 }
 

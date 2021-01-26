@@ -53,6 +53,8 @@ playerImg.src = "/imgs/player.png"
 let pirateImg = document.createElement(`img`)
 pirateImg.src = "/imgs/pirate.png"
 
+const audio = document.querySelector("audio");
+audio.src= "/piratesSong.wav"
 
 
 
@@ -124,7 +126,7 @@ function elements(){
     else if(isArrowUp && playerY > playerShipY -15){
         playerY -= playerDecrementY
     }
-    else if (isArrowDown && playerY + playerHeight < playerShipY + playerShipHeight -5 ){
+    else if (isArrowDown && playerY + playerHeight < playerShipY + playerShipHeight -2 ){
         playerY += playerIncrementY
     }
     
@@ -133,11 +135,11 @@ function elements(){
 
 }
 
-function breakTheChain(){
-    if(playerX + playerWidth && playerY == chain.y) {
-        harpoonImg = 0
-    }
-}
+// function breakTheChain(){
+//     if(playerX + playerWidth && playerY == chain.y) {
+//         harpoonImg = 0
+//     }
+// }
 
 function platformMove(){
     
@@ -149,18 +151,13 @@ function platformMove(){
     }
 }
 
-// function audio() { 
-//     document.sound.src = song
-
-    
-//     window.onload = audio;
-// } 
 
 
 function game(){
     elements()
     platformMove()
-    // audio()
+    audio.volume = 0.1;
+    
 }
 
 

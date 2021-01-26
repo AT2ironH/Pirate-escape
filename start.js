@@ -8,7 +8,7 @@ function remove (){
 function start(){
     let canvas = document.querySelector(`canvas`)
     canvas.style.display = `block`
-    initial()    
+        
 }
 
 function buttonStartsGame(){
@@ -16,9 +16,12 @@ function buttonStartsGame(){
     gameButton.addEventListener(`click`, function(){
     remove()
     start()
+    audio.play()
 })
 
 }
 window.addEventListener(`load`, () => {
     start()
+    buttonStartsGame()
+    
 })

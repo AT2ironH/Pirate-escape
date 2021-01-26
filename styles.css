@@ -1,20 +1,41 @@
 body {
     text-align: center;
 }
-
-h1 {
-    text-align: center;
-}
-p{
-    font-weight: 500;
-}
-
 canvas{
-    display: none;
+    display:none;
     margin: 0 auto;
 }
 
-.backPic{
-    background-image: url(`./imgs/startScreen.png`);
+h1 {
+    font-weight: 900;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 }
+p{
+    font-weight:900;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+.backPic{
+    background-image: url(`./imgs/startScreen.png`);
+    text-align: center;
+    
+}
+
+.centred{
+    
+    background-position:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+    
+}
+
+/* #countdown{
+
+} */

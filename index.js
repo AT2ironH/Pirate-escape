@@ -24,12 +24,13 @@ let coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -play
 let chain = {x:coordinatesX , y:-200 }
 let playerShipIncrementY = 1
 let playerShipDecrementY = 0.5
-let timer = 0
+let timer = 5
+let intervalId = 0
+let score = 0
 
 
- 
-let startScreen = document.createElement(`img`)     //FINISHED
-startScreen.src = "/imgs/startScreen.png"
+
+let countDown = document.getElementById(`countdown`)
 
 
 let backgroundImg = document.createElement(`img`)
@@ -98,8 +99,17 @@ document.addEventListener(`keydown`, (event) => {  //FINISHED
     
     })
 
-
-
+// setInterval(updateTimer, 1000)
+// function updateTimer (){
+//     let seconds =  timer
+//     countDown.innerHTML = `${seconds}`
+//     timer --
+//     if (timer == -2){
+//         timer = 0
+//         restartGame()
+        
+//     }
+// }
 
 
 
@@ -116,6 +126,8 @@ function elements(){
     ctx.drawImage(shipImg, pirateShipX, pirateShipY, shipImg.width *1.3, shipImg.height *1.3)
     ctx.drawImage(playerImg, playerX, playerY, playerWidth,playerHeight)
     ctx.drawImage(pirateImg, canvas.width /2 , 80)
+    ctx.font = `25px Fantasy`
+    ctx.fillText(`Broken chains: ` + score, 20, 400)
 
     if(isLeftArrow && playerX  > playerShipX -15){  
         playerX -= playerDecrementX
@@ -130,31 +142,38 @@ function elements(){
         playerY += playerIncrementY
     }
     
-    
-
 
 }
 
 function breakTheChain(){
     
-    if(playerX + playerImg.width > coordinatesX && playerX < coordinatesX && playerY < coordinatesY && playerY + playerImg.height > coordinatesY   ) {
-       chain.y = -500 
-        coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY
-        coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX
-        chain.x = coordinatesX
-        playerShipY += playerShipIncrementY
-        playerY += playerShipIncrementY
+    if(playerX + playerImg.width > coordinatesX && playerX < coordinatesX && playerY < coordinatesY && playerY + playerImg.height > coordinatesY) { //breaks the chain
+       chain.y = -500  //sets it back to this value
+        coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY  //
+        coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX     //  randomises chain down cause it was reset to come down from just one place
+        chain.x = coordinatesX    // set
+        playerShipY += playerShipIncrementY //
+        playerY += playerShipIncrementY     // and these 2 maybe have sth to do with the bug?
+        score ++
+        
         
     }
 }
+
+// function gameEnd(){  //colision with ship
+//        if(){
+        
+    
+//     }
+// }
 
 function platformMove(){
     
     if (chain.y + harpoonImg.height == coordinatesY || chain.y + harpoonImg.height -1 == coordinatesY){
         playerShipY -= playerShipDecrementY
         coordinatesY -= playerShipDecrementY
-        chain.y -= playerShipDecrementY
-        playerY -= playerShipDecrementY
+        chain.y -= playerShipDecrementY //
+        playerY -= playerShipDecrementY // these 2 maybe have sth to do with the bug?
     }
 }
 
@@ -165,6 +184,8 @@ function game(){
     platformMove()
     audio.volume = 0.1;
     breakTheChain()
+    // gameEnd()
+    
 }
 
 

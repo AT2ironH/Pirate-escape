@@ -1,27 +1,37 @@
 body {
     text-align: center;
+   
 }
 canvas{
     display:none;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 60px;
+    
 }
 
+
+
 h1 {
+    font-size: 48px;
     font-weight: 900;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:fantasy ;
     
 }
 p{
-    font-weight:900;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-family:fantasy;
+    
 }
-
+/* @font-face{
+    font-family: "Treasuremap";
+    src: url("c/users/lenovo/appdata/local/microsoft/windows/fonts/Treasuremap-nRxz0.ttf")
+} */
 
 
 .backPic{
     background-image: url(`./imgs/startScreen.png`);
     text-align: center;
-    position: relative;
+    /* position: relative; */
     
 }
 
@@ -35,8 +45,16 @@ p{
     
     
     
+    
 }
 
-/* #countdown{
+#countdown{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
 
-} */
+.restart{
+    display:none;
+    font-family:fantasy;
+}

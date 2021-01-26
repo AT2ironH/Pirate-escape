@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="startScreen">
-        <article class="centred">
+    <section class="centred">
+            <article class="centred">
             <h1>Pirate Escape</h1>
             <p>Use arrow keys to get to the chains and cut them before the Pirate pulls you too close!</p>
             <button type="button" class="btn btn-outline-dark">Start Game</button>
-        <img class="backPic" src="imgs/startScreen.png" alt="sea surface">
-    </article>
+        </article>
+    <img class="backPic" src="imgs/startScreen.png" alt="sea surface">
+
+    <div class="restart">
+                <h1>Game Over</h1>
+                <button type="button" class="btn btn-outline-dark">Play again</button>
+                
+    </div>
     
     </section>
-    <audio src="/piratesSong.wav" autostart=true  hidden=true loop=true></audio>
-    <p id="countdown">30</p>
+    <audio src="/piratesSong.wav" autostart=true  hidden=true loop=false></audio>
+    
 <div>
+    
     <canvas id="myCanvas" width="900" height="800"></canvas>
+    
 </div>
+<br>
+<p id="countdown">30</p>
     <script src="start.js"></script>
     <script src="index.js"></script>
 </body>

@@ -38,28 +38,28 @@ let timerId = 0;
 let countDown = document.getElementById(`countdown`);
 
 let backgroundImg = document.createElement(`img`);
-backgroundImg.src = "/imgs/waterBack.png";
+backgroundImg.src = "./imgs/waterBack.png";
 
 let backgroundMusic = document.createElement(`audio`);
-backgroundMusic.src = "/piratesSong.wav.wav";
+backgroundMusic.src = "./piratesSong.wav.wav";
 
 let shipImg = document.createElement(`img`);
-shipImg.src = "/imgs/pirate-ship.png";
+shipImg.src = "./imgs/pirate-ship.png";
 
 let playerShipImg = document.createElement(`img`);
-playerShipImg.src = "/imgs/player-ship1.png";
+playerShipImg.src = "./imgs/player-ship1.png";
 
 let harpoonImg = document.createElement(`img`);
-harpoonImg.src = "/imgs/chain1.png";
+harpoonImg.src = "./imgs/chain1.png";
 
 let playerImg = document.createElement(`img`);
-playerImg.src = "/imgs/player.png";
+playerImg.src = "./imgs/player.png";
 
 let pirateImg = document.createElement(`img`);
-pirateImg.src = "/imgs/pirate.png";
+pirateImg.src = "./imgs/pirate.png";
 
 const audio = document.querySelector("audio");
-audio.src = "/piratesSong.wav";
+audio.src = "./piratesSong.wav";
 
 document.addEventListener(`keydown`, (event) => {
   if (event.key == `ArrowRight`) {

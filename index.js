@@ -24,9 +24,10 @@ let coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -play
 let chain = {x:coordinatesX , y:-200 }
 let playerShipIncrementY = 1
 let playerShipDecrementY = 0.5
-let timer = 5
+let timer = 30
 let intervalId = 0
 let score = 0
+let timerId = 0
 
 
 
@@ -37,7 +38,7 @@ let backgroundImg = document.createElement(`img`)
 backgroundImg.src = "/imgs/waterBack.png"
 
 let backgroundMusic = document.createElement(`audio`)
-backgroundMusic.src = "/Background-TidesLoop.wav"
+backgroundMusic.src = "/piratesSong.wav.wav"
 
 let shipImg = document.createElement(`img`)
 shipImg.src = "/imgs/pirate-ship.png"
@@ -99,17 +100,7 @@ document.addEventListener(`keydown`, (event) => {  //FINISHED
     
     })
 
-// setInterval(updateTimer, 1000)
-// function updateTimer (){
-//     let seconds =  timer
-//     countDown.innerHTML = `${seconds}`
-//     timer --
-//     if (timer == -2){
-//         timer = 0
-//         restartGame()
-        
-//     }
-// }
+    
 
 
 
@@ -153,27 +144,23 @@ function breakTheChain(){
         coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX     //  randomises chain down cause it was reset to come down from just one place
         chain.x = coordinatesX    // set
         playerShipY += playerShipIncrementY //
-        playerY += playerShipIncrementY     // and these 2 maybe have sth to do with the bug?
+        playerY += playerShipIncrementY     
         score ++
         
         
     }
 }
 
-// function gameEnd(){  //colision with ship
-//        if(){
-        
-    
-//     }
-// }
 
 function platformMove(){
     
-    if (chain.y + harpoonImg.height == coordinatesY || chain.y + harpoonImg.height -1 == coordinatesY){
+    if (chain.y + harpoonImg.height == coordinatesY || (chain.y + harpoonImg.height -0.5 == coordinatesY ||chain.y + harpoonImg.height -1 == coordinatesY)){
+        
         playerShipY -= playerShipDecrementY
         coordinatesY -= playerShipDecrementY
-        chain.y -= playerShipDecrementY //
-        playerY -= playerShipDecrementY // these 2 maybe have sth to do with the bug?
+        chain.y -= playerShipDecrementY 
+        playerY -= playerShipDecrementY 
+        
     }
 }
 
@@ -188,10 +175,28 @@ function game(){
     
 }
 
+function gameStart(){
+    timer = 30
+    timerId = setInterval (() => {
+        let seconds =  timer
+timer --
+countDown.innerHTML = `${seconds}`
+if (timer == -1){   
+    timer = 0   
+     clearInterval(timerId)      
+    restartGame()
+    clearInterval(intervalId)
+}
+    }, 1000)
+    
+    intervalId = setInterval (() => {
+        requestAnimationFrame(game)
+        
+        }, 10)
+}
 
 
 window.addEventListener('load', () => {
-intervalId = setInterval (() => {
-    requestAnimationFrame(game)
-    }, 10)
+
 })
+

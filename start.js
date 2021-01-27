@@ -6,7 +6,7 @@ function remove (){
     
 }
 
-function start(){
+function showCanvas(){
     let canvas = document.querySelector(`canvas`)
     canvas.style.display = `block`
         
@@ -16,9 +16,9 @@ function buttonStartsGame(){
     let gameButton = document.querySelector(`button`)
     gameButton.addEventListener(`click`, function(){
     remove()
-    start()
-    // audio.play()   //starts audio
-    
+    showCanvas()
+    audio.play()  
+    gameStart()
     
     
 })
@@ -28,16 +28,17 @@ function restartGame(){
     let getDiv = document.querySelector(`.restart`)
     canvas.style.display = `none`
     getDiv.style.display = `block`
-    let restartButton = document.querySelector(`.btn btn-outline-dark`)
+    let restartButton = getDiv.querySelector(`.btn`)
     restartButton.addEventListener(`click`, function(){
         getDiv.style.display = `none`
-        start()
         
+        showCanvas() 
+        gameStart()
     })
 }
 
 window.addEventListener(`load`, () => {
-    start()
+    showCanvas()
     buttonStartsGame()
     
     

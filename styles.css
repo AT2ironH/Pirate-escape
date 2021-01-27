@@ -5,7 +5,7 @@ body {
 canvas{
     display:none;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 59px;
     
 }
 
@@ -14,7 +14,7 @@ canvas{
 h1 {
     font-size: 48px;
     font-weight: 900;
-    font-family:fantasy ;
+    font-family:fantasy;
     
 }
 p{
@@ -22,10 +22,7 @@ p{
     font-family:fantasy;
     
 }
-/* @font-face{
-    font-family: "Treasuremap";
-    src: url("c/users/lenovo/appdata/local/microsoft/windows/fonts/Treasuremap-nRxz0.ttf")
-} */
+
 
 
 .backPic{
@@ -43,9 +40,7 @@ p{
     left: 50%;
     transform: translate(-50%, -50%);
     
-    
-    
-    
+
 }
 
 #countdown{
@@ -57,4 +52,5 @@ p{
 .restart{
     display:none;
     font-family:fantasy;
+    
 }

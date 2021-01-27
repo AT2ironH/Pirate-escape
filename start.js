@@ -17,7 +17,7 @@ function buttonStartsGame(){
     gameButton.addEventListener(`click`, function(){
     remove()
     showCanvas()
-    // audio.play()  
+    audio.play()  
     gameStart()
     
     
@@ -31,10 +31,11 @@ function restartGame(){
     let restartButton = getDiv.querySelector(`.btn`)
     restartButton.addEventListener(`click`, function(){
         getDiv.style.display = `none`
-        
         showCanvas() 
+        resetVariables()
         gameStart()
-        
+
+
         
     })
 }

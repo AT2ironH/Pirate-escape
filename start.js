@@ -21,6 +21,7 @@ function buttonStartsGame(){
     gameStart()
     
     
+    
 })
 }
 

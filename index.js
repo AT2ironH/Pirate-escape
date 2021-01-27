@@ -1,6 +1,6 @@
 let canvas = document.querySelector(`canvas`);
 let ctx = canvas.getContext(`2d`);
-canvas.style.border = `5px solid black`;
+// canvas.style.border = `5px solid black`;
 let playerX = 360;
 let playerY = 650;
 let playerWidth = 60;
@@ -182,18 +182,42 @@ function platformMove() {
 }
 function resetVariables() {
     
-    playerShipY = canvas.height - playerShipHeight;
-  coordinatesY =
-    Math.floor(
-      Math.random() * (playerShipY + playerShipHeight - playerShipY + 1)
-    ) + playerShipY;
-  coordinatesX =
-    Math.floor(
-      Math.random() * (playerShipX + playerShipWidth - playerShipX + 1)
-    ) + playerShipX;
-  chain = { x: coordinatesX, y: -200 };
-  playerX = 360;
-  playerY = 650;
+     canvas = document.querySelector(`canvas`);
+     ctx = canvas.getContext(`2d`);
+    canvas.style.border = `5px solid black`;
+     playerX = 360;
+     playerY = 650;
+     playerWidth = 60;
+     playerHeight = 50;
+     playerIncrementX = 1.5;
+     playerDecrementY = 1.5;
+     playerDecrementX = 1.5;
+     playerIncrementY = 1.5;
+     isLeftArrow = false;
+     isRightArrow = false;
+     isArrowUp = false;
+     isArrowDown = false;
+     playerShipWidth = 440;
+     playerShipHeight = 240;
+     playerShipX = canvas.width / 4;
+     playerShipY = canvas.height - playerShipHeight;
+     pirateShipX = canvas.width / 6;
+     pirateShipY = -80;
+     coordinatesY =
+      Math.floor(
+        Math.random() * (playerShipY + playerShipHeight - playerShipY + 1)
+      ) + playerShipY;
+     coordinatesX =
+      Math.floor(
+        Math.random() * (playerShipX + playerShipWidth - playerShipX + 1)
+      ) + playerShipX;
+     chain = { x: coordinatesX, y: -200 };
+     playerShipIncrementY = 1;
+     playerShipDecrementY = 0.5;
+     timer = 3;
+     intervalId = 0;
+     score = 0;
+     timerId = 0;
 }
 
 function game() {

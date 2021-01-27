@@ -17,7 +17,7 @@ function buttonStartsGame(){
     gameButton.addEventListener(`click`, function(){
     remove()
     showCanvas()
-    audio.play()  
+    // audio.play()  
     gameStart()
     
     
@@ -34,6 +34,8 @@ function restartGame(){
         
         showCanvas() 
         gameStart()
+        
+        
     })
 }
 

@@ -59,11 +59,7 @@ const audio = document.querySelector("audio");
 audio.src= "/piratesSong.wav"
 
 
-
-
-
-
-document.addEventListener(`keydown`, (event) => {  //FINISHED
+document.addEventListener(`keydown`, (event) => {  
     if (event.key == `ArrowRight`){
         isRightArrow = true;
         isLeftArrow = false;
@@ -138,15 +134,25 @@ function elements(){
 
 function breakTheChain(){
     
-    if(playerX + playerImg.width > coordinatesX && playerX < coordinatesX && playerY < coordinatesY && playerY + playerImg.height > coordinatesY) { //breaks the chain
-       chain.y = -500  //sets it back to this value
-        coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY  //
+    if(playerX + playerImg.width > coordinatesX && playerX < coordinatesX && playerY < coordinatesY && playerY + playerImg.height > coordinatesY) { 
+       chain.y = -500  
+        coordinatesY = Math.floor(Math.random()*(playerShipY + playerShipHeight -playerShipY +1 )) + playerShipY  
         coordinatesX = Math.floor(Math.random()*(playerShipX + playerShipWidth -playerShipX +1 )) + playerShipX     //  randomises chain down cause it was reset to come down from just one place
-        chain.x = coordinatesX    // set
-        playerShipY += playerShipIncrementY //
+        chain.x = coordinatesX    
+        playerShipY += playerShipIncrementY 
         playerY += playerShipIncrementY     
         score ++
         
+        
+    }
+}
+
+function boatGameOver(){
+    if(playerShipY + playerShipHeight < 400){
+        
+        restartGame()
+        clearInterval(timerId)
+        clearInterval(intervalId)
         
     }
 }
@@ -155,7 +161,6 @@ function breakTheChain(){
 function platformMove(){
     
     if (chain.y + harpoonImg.height == coordinatesY || (chain.y + harpoonImg.height -0.5 == coordinatesY ||chain.y + harpoonImg.height -1 == coordinatesY)){
-        
         playerShipY -= playerShipDecrementY
         coordinatesY -= playerShipDecrementY
         chain.y -= playerShipDecrementY 
@@ -171,7 +176,7 @@ function game(){
     platformMove()
     audio.volume = 0.1;
     breakTheChain()
-    // gameEnd()
+    boatGameOver()
     
 }
 
@@ -180,7 +185,7 @@ function gameStart(){
     timerId = setInterval (() => {
         let seconds =  timer
 timer --
-countDown.innerHTML = `${seconds}`
+countDown.innerHTML = `Hold on for ${seconds} more seconds`
 if (timer == -1){   
     timer = 0   
      clearInterval(timerId)      

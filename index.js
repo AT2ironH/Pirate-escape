@@ -116,7 +116,7 @@ function elements() {
   );
   ctx.drawImage(playerImg, playerX, playerY, playerWidth, playerHeight);
   ctx.drawImage(pirateImg, canvas.width / 2, 80);
-  ctx.font = `25px Fantasy`;
+  ctx.font = `25px 'Seaweed Script', cursive`;
   ctx.fillText(`Broken chains: ` + score, 20, 400);
 
   if (isLeftArrow && playerX > playerShipX - 15) {
@@ -236,10 +236,11 @@ function gameStart() {
     countDown.innerHTML = `Hold on for ${seconds} more seconds`;
     if (timer == -1) {
       timer = 0;
-      resetVariables()
+      
       clearInterval(timerId);
-      restartGame();
       clearInterval(intervalId);
+      resetVariables()
+      restartGame();
     }
   }, 1000);
 

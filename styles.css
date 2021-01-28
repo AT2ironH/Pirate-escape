@@ -1,5 +1,7 @@
 body {
     text-align: center;
+    font-family: 'Seaweed Script', cursive;
+
    
 }
 canvas{
@@ -12,14 +14,14 @@ canvas{
 
 
 h1 {
-    font-size: 50px;
+    font-size: 70px;
     font-weight: 900;
-    font-family:fantasy;
+    /* font-family:fantasy; */
     
 }
 p{
-    font-size: 20px;
-    font-family:fantasy;
+    font-size: 25px;
+    /* font-family:fantasy; */
     
 }
 

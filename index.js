@@ -41,7 +41,7 @@ let backgroundImg = document.createElement(`img`);
 backgroundImg.src = "./imgs/waterBack.png";
 
 let backgroundMusic = document.createElement(`audio`);
-backgroundMusic.src = "./piratesSong.wav.wav";
+backgroundMusic.src = "./piratesSong.wav";
 
 let shipImg = document.createElement(`img`);
 shipImg.src = "./imgs/pirate-ship.png";
@@ -168,6 +168,13 @@ function boatGameOver() {
   }
 }
 
+// function timeoutGameover(){
+//   if (timer == -1){
+//   restartGameIfWin()
+//   console.log(`hello`)
+//   }
+// }
+
 function platformMove() {
   if (
     chain.y + harpoonImg.height == coordinatesY ||
@@ -226,10 +233,12 @@ function game() {
   audio.volume = 0.1;
   breakTheChain();
   boatGameOver();
+  // timeoutGameover()
+  
 }
 
 function gameStart() {
-  timer = 20;
+  timer = 30;
   timerId = setInterval(() => {
     let seconds = timer;
     timer--;
@@ -240,7 +249,7 @@ function gameStart() {
       clearInterval(timerId);
       clearInterval(intervalId);
       resetVariables()
-      restartGame();
+      restartGameIfWin()
     }
   }, 1000);
 

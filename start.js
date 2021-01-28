@@ -35,11 +35,24 @@ function restartGame(){
         showCanvas() 
         resetVariables()
         gameStart()
-
-
         
     })
 }
+
+function restartGameIfWin(){
+    let getAnotherDiv = document.querySelector(`.goodEnd`)
+    canvas.style.display = `none`
+    getAnotherDiv.style.display = `block`
+    let goodWinRestartButton = document.querySelector(`#thirdButton`)
+    goodWinRestartButton.addEventListener(`click`, function(){
+        getAnotherDiv.style.display = `none`
+        showCanvas() 
+        resetVariables()
+        gameStart()
+
+    })
+}
+
 
 window.addEventListener(`load`, () => {
     showCanvas()

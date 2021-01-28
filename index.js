@@ -168,13 +168,6 @@ function boatGameOver() {
   }
 }
 
-// function timeoutGameover(){
-//   if (timer == -1){
-//   restartGameIfWin()
-//   console.log(`hello`)
-//   }
-// }
-
 function platformMove() {
   if (
     chain.y + harpoonImg.height == coordinatesY ||
@@ -233,12 +226,12 @@ function game() {
   audio.volume = 0.1;
   breakTheChain();
   boatGameOver();
-  // timeoutGameover()
+  
   
 }
 
 function gameStart() {
-  timer = 30;
+  timer = 15;
   timerId = setInterval(() => {
     let seconds = timer;
     timer--;

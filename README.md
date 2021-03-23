@@ -1,4 +1,4 @@
--------------- Pirate Escape --------------------------
+---------------------------------------------------------- Pirate Escape ---------------------------------------------------------------
 
 -  Description
 
@@ -42,4 +42,4 @@ Definition of the different states and their transition (transition functions)
 
 - Git
 URls for the project repo:
--https://github.com/Aleks-Trifunovic/Pirate-escape
+- https://aleks-trifunovic.github.io/Pirate-escape/

@@ -42,4 +42,4 @@ Definition of the different states and their transition (transition functions)
 
 - Git
 URls for the project repo:
--https://github.com/AT2ironH/Pirate-escape
+-https://github.com/Aleks-Trifunovic/Pirate-escape
